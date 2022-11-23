@@ -1,14 +1,10 @@
 # cs2080_16NOV22
 
-Dockerfile
+Dockerfile is updated as required for the lab.
+Following the codes below for the lab:
 
-FROM ubuntu:22.10
+cd /myImages/myUbuntu
 
-RUN apt update \
-&& apt install -y zsh curl
+docker build -t my ubuntu .
 
-RUN curl -fsSL https://code-server.dev/install.sh | sh
-
-# Binding to the public Ehthernet 0.0.0.0 instead of 127.0.0.1
-# Remove password requirement to login in to VS Code
-CMD [ "code-server", "--bind-addr", "0.0.0.0:8080", "--auth", "none" ]
+docker run -it -p 80:8080 myubuntu
